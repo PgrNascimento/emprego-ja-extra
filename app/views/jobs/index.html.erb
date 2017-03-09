@@ -3,7 +3,7 @@
     <%@jobs.each do |job| %>
       <div class="job">
         <h2><%=link_to job.title, job%></h2>
-        <%=job.company%>
+        <%=job.company.name%>
         <%=job.location%>
         <%if job.featured? %>
           <strong>Destaque</strong>
