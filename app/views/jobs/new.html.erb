@@ -1,10 +1,10 @@
 <div class="row">
   <%= simple_form_for @job do |f| %>
-    <%=f.input :title, label: "Título", required: false %>
-    <%=f.input :location, label: "Local", required: false %>
-    <%=f.input :category, label: "Categoria", required: false %>
+    <%=f.input :title, label: "Título" %>
+    <%=f.input :location, label: "Local"%>
+    <%=f.input :category, label: "Categoria"%>
     <%=f.association :company, label: "Empresa", required: false %>
-    <%=f.input :description, as: :text, label: "Descrição", required: false %>
+    <%=f.input :description, as: :text, label: "Descrição"%>
     <%=f.input :featured, label: "Destaque" %>
     <%= f.button :submit, "Criar Vaga", class: "btn-lg btn-primary" %>
     <%= link_to "Voltar", root_path, class: "btn btn-default" %>
