@@ -9,9 +9,13 @@
   </head>
 
   <body>
-    <header>
-      Emprego Já
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
+        <%= link_to "Emprego Já", root_path, class: "navbar-brand" %>
+      </div>
     </header>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
