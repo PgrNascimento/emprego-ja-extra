@@ -2,7 +2,7 @@
   <div class="col-md-4">
     <%@jobs.each do |job| %>
       <div class="job">
-        <h2><%=job.title%></h2>
+        <h2><%=link_to job.title, job%></h2>
         <%=job.company%>
         <%=job.location%>
       </div>
