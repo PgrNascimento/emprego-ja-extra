@@ -5,6 +5,7 @@
     <%=f.input :category, label: "Categoria", required: false %>
     <%=f.input :company, label: "Empresa", required: false %>
     <%=f.input :description, as: :text, label: "Descrição", required: false %>
+    <%=f.input :featured, label: "Destaque" %>
     <%= f.button :submit, "Criar Vaga", class: "btn-lg btn-primary" %>
     <%= link_to "Voltar", root_path, class: "btn btn-default" %>
   <%end%>

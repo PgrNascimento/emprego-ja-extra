@@ -7,5 +7,9 @@
   <dt>Descrição</dt><dd><%=@job.description%></dd>
 
   <dt>Local</dt><dd><%=@job.location%></dd>
+
+  <%if @job.featured? %>
+    <strong>Destaque</strong>
+  <%end%>
 </dl>
 <%= link_to "Voltar", root_path %>

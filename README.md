@@ -42,4 +42,6 @@ This app is a basic rails app, however some cool gems are required:
 
 * Factory Girl - fixtures replacement
 
+* SimpleForm - Rails forms made easy. 
+
 * simplecov - for test code coverage
