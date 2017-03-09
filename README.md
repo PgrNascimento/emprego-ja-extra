@@ -1,24 +1,45 @@
-# README
+# Emprego Já
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a realtime search box, where users search articles. Every search is saved for a future analyse and trend.
+This is a jobs offer, where users see new opportunities to work. Is the first project that I do in Campus Code, this time I'm doing with news gems I learned during the course.
 
-Things you may want to cover:
+All features you will find in https://trello.com/b/JtKRCjVH/emprego-ja-alan
+## How to run
 
-* Ruby version
+Install required gems
 
-* System dependencies
+`bundle install`
 
-* Configuration
+Run migrations
 
-* Database creation
+`rails db:migrate`
 
-* Database initialization
+Run rails
 
-* How to run the test suite
+`rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Tests
 
-* Deployment instructions
+Run all tests with
 
-* ...
+`rspec`
+
+Check code coverage at */coverage* on root folder.
+
+## DEMO
+
+Unavailable for now
+
+## URLS
+
+/ - Home - Where you view a list of jobs, companies e categories
+
+## Gems
+
+This app is a basic rails app, however some cool gems are required:
+
+* Rspec - Best way to do your tests
+
+* Factory Girl - fixtures replacement
+
+* simplecov - for test code coverage
