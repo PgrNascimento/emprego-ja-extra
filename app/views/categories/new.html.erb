@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="formulario">
   <%=simple_form_for @category do |f| %>
     <%=f.input :name, label: "Nome", error: "Campo obrigatório" %>
     <%=f.button :submit, "Criar Categoria", class: "btn-lg btn-primary" %>
