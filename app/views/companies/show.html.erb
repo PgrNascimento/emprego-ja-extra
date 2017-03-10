@@ -15,11 +15,11 @@
   <%= link_to "Voltar", root_path %>
 </dl>
 
-<div class="row">
+<div class="row" style="margin-bottom: 30px;">
   <h2 class="text-center">Vagas da <%=@company.name%></h2>
   <div class="jobs">
     <%if @company.jobs.empty? %>
-      <div class="alert alert-warning" role="alert">Nenhuma vaga disponível</div>
+      <div class="alert alert-warning text-center" role="alert">Nenhuma vaga disponível</div>
     <%end%>
     <%@company.jobs.each do |job| %>
       <%= render job %>
