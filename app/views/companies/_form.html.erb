@@ -1,0 +1,8 @@
+<%= simple_form_for @company do |f| %>
+  <%=f.input :name, label: "Nome" %>
+  <%=f.input :location, label: "Local"%>
+  <%=f.input :mail, label: "Email"%>
+  <%=f.input :phone, label: "Telefone" %>
+  <%= f.button :submit, name_button, class: "btn-lg btn-primary" %>
+  <%= link_to "Voltar", root_path, class: "btn btn-default" %>
+<%end%>
