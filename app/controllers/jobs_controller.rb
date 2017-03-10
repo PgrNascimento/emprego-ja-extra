@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = Job.all
+    @companies = Company.all
   end
 
   def show
@@ -37,6 +38,6 @@ class JobsController < ApplicationController
 
   private
   def job_params
-    params.require(:job).permit(:title, :location, :category, :company_id, :description, :featured)
+    params.require(:job).permit(:title, :location, :category_id, :company_id, :description, :featured)
   end
 end

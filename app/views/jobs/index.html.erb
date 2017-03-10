@@ -1,14 +1,15 @@
 <div class="row">
   <div class="col-md-4">
     <%@jobs.each do |job| %>
-      <div class="job">
-        <h2><%=link_to job.title, job%></h2>
-        <%=job.company.name%>
-        <%=job.location%>
-        <%if job.featured? %>
-          <strong>Destaque</strong>
-        <%end%>
-      </div>
+      <%= render job%>      
     <% end %>
+  </div>
+  <div class="col-md-2">
+    Empresas
+    <%@companies.each do |company| %>
+      <div class="company">
+        <%=link_to company.name, company %>
+      </div>
+    <%end%>
   </div>
 </div>
