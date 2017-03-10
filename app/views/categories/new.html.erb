@@ -1,0 +1,7 @@
+<div class="row">
+  <%=simple_form_for @category do |f| %>
+    <%=f.input :name, label: "Nome", error: "Campo obrigatório" %>
+    <%=f.button :submit, "Criar Categoria", class: "btn-lg btn-primary" %>
+    <%= link_to "Voltar", root_path, class: "btn btn-default" %>
+  <%end%>
+</div>
