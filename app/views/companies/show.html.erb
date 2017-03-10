@@ -22,8 +22,8 @@
     <%if @company.jobs.empty? %>
       <div class="alert alert-warning text-center" role="alert">Nenhuma vaga disponível</div>
     <%end%>
-    <%@company.jobs.each do |job| %>
-      <%= render job %>
+    <%@company.jobs.each do |job| %>      
+        <%= render job %>
     <%end%>
   </div>
 

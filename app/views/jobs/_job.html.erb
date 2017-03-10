@@ -1,11 +1,13 @@
-<div class="col-md-4 col-sm-12 col-xs-12">
-  <div class="job">
-    <h2><%=link_to job.title, job%></h2>
-    <p><%=job.company.name%></p>
-    <p><%=job.category.name%></p>
-    <p><%=job.location%></p>
-    <%if job.featured? %>
-      <strong>Destaque</strong>
-    <%end%>
+<%unless job.expired? %>
+  <div class="col-md-4 col-sm-12 col-xs-12">
+    <div class="job">
+      <h2><%=link_to job.title, job%></h2>
+      <p><%=job.company.name%></p>
+      <p><%=job.category.name%></p>
+      <p><%=job.location%></p>
+      <%if job.featured? %>
+        <strong>Destaque</strong>
+      <%end%>
+    </div>
   </div>
-</div>
+<%end%>
