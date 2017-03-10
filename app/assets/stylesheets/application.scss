@@ -1,3 +1,13 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+
+.row .job {
+  border: 2px solid black;
+  padding: 15px;
+  margin: 10px;
+  width: 95%;
+  height: 232px;
+}

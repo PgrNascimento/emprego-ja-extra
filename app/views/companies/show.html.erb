@@ -1,18 +1,29 @@
-<h1><%=@company.name%></h1>
 <dl class="dl-horizontal">
+  <h1>
+    <%=@company.name%>
+    <%if @company.premium? %>
+      <%= image_tag 'estrela.png', alt: "Estrela para uma empresa premium" %>
+    <%end%>
+  </h1>
+
   <dt>Local</dt><dd><%=@company.location%></dd>
 
   <dt>Email</dt><dd><%=@company.mail%></dd>
 
   <dt>Telefone</dt><dd><%=@company.phone%></dd>
+
+  <%= link_to "Voltar", root_path %>
 </dl>
 
-<div class="jobs">
-  <%if @company.jobs.empty? %>
-    <div class="alert alert-warning" role="alert">Nenhuma vaga disponível</div>
-  <%end%>
-  <%@company.jobs.each do |job| %>
-    <%= render job %>
-  <%end%>
+<div class="row">
+  <h2 class="text-center">Vagas da <%=@company.name%></h2>
+  <div class="jobs">
+    <%if @company.jobs.empty? %>
+      <div class="alert alert-warning" role="alert">Nenhuma vaga disponível</div>
+    <%end%>
+    <%@company.jobs.each do |job| %>
+      <%= render job %>
+    <%end%>
+  </div>
+
 </div>
-<%= link_to "Voltar", root_path %>

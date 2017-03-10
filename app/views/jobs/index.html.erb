@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-10 col-sm-10">
     <%@jobs.each do |job| %>
       <%= render job%>
     <% end %>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-2 col-sm-2">
     Empresas
     <%@companies.each do |company| %>
       <div class="company">
         <%=link_to company.name, company %>
       </div>
     <%end%>
-    <hr>    
+    <hr>
     Categorias
     <%@categories.each do |category| %>
       <div class="category">

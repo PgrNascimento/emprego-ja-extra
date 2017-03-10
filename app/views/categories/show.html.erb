@@ -1,5 +1,5 @@
 <div class="row">
-  <h1><%=@category.name%></h1>
+  <h1 style="display: inline"><%=@category.name%></h1> | <%= link_to "Voltar", root_path %>
 </div>
 
 <div class="row">
@@ -12,5 +12,3 @@
     <%end%>
   </div>
 </div>
-
-<%= link_to "Voltar", root_path %>

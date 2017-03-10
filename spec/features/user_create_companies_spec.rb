@@ -16,6 +16,7 @@ feature 'User create companies' do
 
     click_on 'Criar Empresa'
 
+    expect(page).not_to have_xpath("//img[contains(@src,'estrela')]")
     expect(page).to have_css('h1', text: company.name)
     expect(page).to have_content(company.location)
     expect(page).to have_content(company.mail)

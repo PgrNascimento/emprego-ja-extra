@@ -8,8 +8,10 @@
 
   <dt>Local</dt><dd><%=@job.location%></dd>
 
-  <%if @job.featured? %>
-    <strong>Destaque</strong>
-  <%end%>
+  <dd>
+    <%if @job.featured? %>
+      <strong>Destaque</strong>
+    <%end%>
+  </dd>
 </dl>
 <%= link_to "Voltar", root_path %>
