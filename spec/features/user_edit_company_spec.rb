@@ -26,7 +26,10 @@ feature 'User edit company' do
 
     visit edit_company_path(company)
 
-    fill_in 'Nome', with: ''
+    fill_in 'Nome',       with: ''
+    fill_in 'Local',        with: ''
+    fill_in 'Email',    with: ''
+    fill_in 'Telefone', with: ''
 
     click_on 'Atualizar Empresa'
 

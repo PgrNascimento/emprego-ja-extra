@@ -1,11 +1,11 @@
 class CompaniesController < ApplicationController
+  before_action :get_company, only: [:show, :edit, :update]
+
   def new
     @company = Company.new
   end
 
-  def show
-    @company = Company.find params[:id]
-  end
+  def show; end
 
   def create
     @company = Company.new company_params
@@ -17,12 +17,9 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def edit
-    @company = Company.find params[:id]
-  end
+  def edit; end
 
   def update
-    @company = Company.find params[:id]
     if @company.update company_params
       redirect_to @company
     else
@@ -34,5 +31,9 @@ class CompaniesController < ApplicationController
   private
   def company_params
     params.require(:company).permit(:name, :location, :phone, :mail)
+  end
+
+  def get_company
+    @company = Company.find params[:id]
   end
 end
