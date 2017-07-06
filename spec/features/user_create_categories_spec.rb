@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'User create categories' do
+  before { login }
   scenario 'successfully' do
     category = build(:category, name: 'Desenvolvedor')
 

@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+
   def show
     @category = Category.find params[:id]
   end
@@ -19,6 +21,6 @@ class CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:name)    
+    params.require(:category).permit(:name)
   end
 end

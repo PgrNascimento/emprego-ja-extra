@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'User edit company' do
+  before { login }
   scenario 'successfully' do
     company = create(:company)
 

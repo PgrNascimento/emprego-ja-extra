@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :get_company, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def new
     @company = Company.new

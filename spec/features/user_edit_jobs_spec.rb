@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'User edit jobs' do
+  before { login }
   scenario 'successfully' do
     company = Company.create(name: 'Campus Code',
                              location: 'São Paulo',

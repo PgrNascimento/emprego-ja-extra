@@ -1,21 +1,20 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :get_job, only: [:show, :edit, :update]
+
   def index
     @jobs = Job.all
     @companies = Company.all
     @categories = Category.all
   end
 
-  def show
-    @job = Job.find params[:id]
-  end
+  def show; end
 
   def new
     @job = Job.new
   end
 
-  def edit
-    @job = Job.find params[:id]
-  end
+  def edit; end
 
   def create
     @job = Job.new job_params
@@ -28,7 +27,6 @@ class JobsController < ApplicationController
   end
 
   def update
-    @job = Job.find params[:id]
     if @job.update job_params
       redirect_to @job
     else
@@ -40,5 +38,9 @@ class JobsController < ApplicationController
   private
   def job_params
     params.require(:job).permit(:title, :location, :category_id, :company_id, :description, :featured)
+  end
+
+  def get_job
+    @job = Job.find params[:id]
   end
 end

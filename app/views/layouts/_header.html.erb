@@ -14,11 +14,18 @@
         <li><%= link_to "Nova Empresa", new_company_path%></li>
         <li><%= link_to "Nova Categoria", new_category_path%></li>
         <li><%= link_to "Nova Vaga", new_job_path%></li>
+        <%if current_user%>
+          <li><%= "Bem vindo, #{current_user.email}" %>
+        <%else%>
+          <li><%= link_to "Login", new_user_session_path%></li>
+        <%end%>
       </ul>
     </div>
   </div>
 </header>
 <div class="container">
+  <p class="notice"><%= notice %></p>                                                                                             │☻  rails s                                                                                                    ruby-2.3.3 master e27d72e
+  <p class="alert"><%= alert %></p>
   <%unless flash[:error].nil? %>
     <div class="alert alert-danger" role="alert"><%=flash[:error]%></div>
   <%end%>
