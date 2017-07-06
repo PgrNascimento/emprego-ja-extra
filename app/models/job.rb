@@ -4,6 +4,10 @@ class Job < ApplicationRecord
   belongs_to :category
 
   def expired?
-    self.created_at <= -90.days.from_now
+    self.created_at <= 90.days.ago
+  end
+
+  def new?
+    (created_at.to_date - 5.days.ago.to_date).to_i >= 0
   end
 end
