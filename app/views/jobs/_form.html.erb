@@ -1,6 +1,8 @@
 <%= simple_form_for @job do |f| %>
   <%=f.input :title, label: "Título" %>
   <%=f.input :location, label: "Local"%>
+  <%=f.label :hiring_type, "Tipo de Contratação"%>
+  <%=f.select :hiring_type, [['CLT', 'CLT'], ['PJ', 'PJ'], ['Freelance', 'Freelance']], label: 'Tipo de Contratação'%>
   <%=f.association :category, label: "Categoria"%>
   <%=f.association :company, label: "Empresa", required: false %>
   <%=f.input :description, as: :text, label: "Descrição"%>

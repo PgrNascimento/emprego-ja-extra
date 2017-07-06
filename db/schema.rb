@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706155048) do
+ActiveRecord::Schema.define(version: 20170706210634) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170706155048) do
     t.boolean  "featured"
     t.integer  "company_id"
     t.integer  "category_id"
+    t.string   "hiring_type"
     t.index ["category_id"], name: "index_jobs_on_category_id"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
