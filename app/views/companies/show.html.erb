@@ -5,11 +5,8 @@
       <%= image_tag 'estrela.png', alt: "Estrela para uma empresa premium" %>
     <%end%>
   </h1>
-
   <dt>Local</dt><dd><%=@company.location%></dd>
-
   <dt>Email</dt><dd><%=@company.mail%></dd>
-
   <dt>Telefone</dt><dd><%=@company.phone%></dd>
 
   <%=link_to "Editar", edit_company_path(@company), class: "btn btn-primary"%>
@@ -22,9 +19,8 @@
     <%if @company.jobs.empty? %>
       <div class="alert alert-warning text-center" role="alert">Nenhuma vaga disponível</div>
     <%end%>
-    <%@company.jobs.each do |job| %>      
+    <%@company.jobs.each do |job| %>
         <%= render job %>
     <%end%>
   </div>
-
 </div>

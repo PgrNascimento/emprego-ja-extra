@@ -1,0 +1,34 @@
+pt-BR:
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categorias
+      user:
+        one: Usuário
+        other: Usuários
+      company:
+        one: Empresa
+        other: Empresas
+      job:
+        one: Vaga
+        other: Vagas
+    attributes:
+      category:
+        name: Nome
+      company:
+        name: Nome
+        location: Local
+        mail: Email
+        phone: Telefone
+      user:
+        email: Email
+        password: Senha
+      job:
+        hiring_type: Tipo de Contratação
+        title: Título
+        description: Descrição
+        location: Local
+        featured: Destaque
+        company: Empresa
+        category: Categoria

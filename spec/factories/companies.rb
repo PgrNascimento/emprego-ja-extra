@@ -4,5 +4,6 @@ FactoryGirl.define do
     location "MyString"
     mail "MyString"
     phone "MyString"
+    user
   end
 end

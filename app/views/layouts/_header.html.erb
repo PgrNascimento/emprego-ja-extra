@@ -24,9 +24,9 @@
   </div>
 </header>
 <div class="container">
-  <p class="notice"><%= notice %></p>                                                                                             │☻  rails s                                                                                                    ruby-2.3.3 master e27d72e
+  <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-  <%unless flash[:error].nil? %>
+  <%if flash[:error] %>
     <div class="alert alert-danger" role="alert"><%=flash[:error]%></div>
   <%end%>
 </div>

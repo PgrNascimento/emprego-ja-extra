@@ -1,71 +1,49 @@
 require 'rails_helper'
 
 feature 'User create jobs' do
-  before { login }
+  let(:user) { login }
+  before { user }
   scenario 'successfully' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476')
-
-    category = Category.create(name: 'Desenvolvedor')
-
-    job = Job.new(title: 'Dev Master',
-                  location: 'Rio de Janeiro',
-                  description: 'Vaga para Dev Master para Bootcamp Rails',
-                  hiring_type: 'CLT')
+    company = create(:company, name: 'Campus Code')
+    category = create(:category, name: 'Testers')
 
     visit new_job_path
-
-    save_page
-    fill_in 'Título',       with: job.title
+    fill_in 'Título',       with: 'Vaga de Dev'
     select 'CLT',           from: 'Tipo de Contratação'
-    fill_in 'Local',        with: job.location
+    fill_in 'Local',        with: 'São Paulo'
     select  category.name,  from: 'Categoria'
     select  company.name,   from: 'Empresa'
-    fill_in 'Descrição',    with: job.description
-
+    fill_in 'Descrição',    with: 'Precisa deixar tudo verde'
     click_on 'Criar Vaga'
 
-    expect(page).to have_css('h1', text: job.title)
-    expect(page).to have_content job.location
-    expect(page).to have_content job.hiring_type
-    expect(page).to have_content category.name
-    expect(page).to have_content company.name
-    expect(page).to have_content job.description
+    expect(page).to have_css('h1', text: 'Vaga de Dev')
+    expect(page).to have_content 'São Paulo'
+    expect(page).to have_content 'CLT'
+    expect(page).to have_content 'Testers'
+    expect(page).to have_content 'Campus Code'
+    expect(page).to have_content 'Precisa deixar tudo verde'
   end
 
   scenario 'and mark as featured' do
-    company = Company.create(name: 'Campus Code',
-                             location: 'São Paulo',
-                             mail: 'contato@campus.com.br',
-                             phone: '2369-3476',
-                             hiring_type: 'CLT')
-
-    category = Category.create(name: 'Desenvolvedor')
-
-    job = Job.new(title: 'Dev Master',
-                  location: 'Rio de Janeiro',
-                  description: 'Vaga para Dev Master para Bootcamp Rails')
+    company = create(:company, name: 'Campus Code')
+    category = create(:category, name: 'Testers')
 
     visit new_job_path
-
-    fill_in 'Título',       with: job.title
-    select 'CLT', from: 'Tipo de Contratação'
-    fill_in 'Local',        with: job.location
+    fill_in 'Título',       with: 'Vaga de Dev'
+    select 'CLT',           from: 'Tipo de Contratação'
+    fill_in 'Local',        with: 'São Paulo'
     select  category.name,  from: 'Categoria'
     select  company.name,   from: 'Empresa'
-    fill_in 'Descrição',    with: job.description
-    check   'Destaque'
-
+    fill_in 'Descrição',    with: 'Precisa deixar tudo verde'
+    check 'Destaque'
     click_on 'Criar Vaga'
 
-    expect(page).to have_css('h1', text: job.title)
-    expect(page).to have_content job.location
-    expect(page).to have_content job.hiring_type
-    expect(page).to have_content category.name
-    expect(page).to have_content company.name
-    expect(page).to have_content job.description
+    expect(page).to have_css('h1', text: 'Vaga de Dev')
+    expect(page).to have_content 'São Paulo'
+    expect(page).to have_content 'CLT'
+    expect(page).to have_content 'Testers'
+    expect(page).to have_content 'Campus Code'
+    expect(page).to have_content 'Precisa deixar tudo verde'
     expect(page).to have_css('strong', text: 'Destaque')
   end
 

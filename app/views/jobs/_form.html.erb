@@ -1,12 +1,11 @@
 <%= simple_form_for @job do |f| %>
-  <%=f.input :title, label: "Título" %>
-  <%=f.input :location, label: "Local"%>
-  <%=f.label :hiring_type, "Tipo de Contratação"%>
-  <%=f.select :hiring_type, [['CLT', 'CLT'], ['PJ', 'PJ'], ['Freelance', 'Freelance']], label: 'Tipo de Contratação'%>
-  <%=f.association :category, label: "Categoria"%>
-  <%=f.association :company, label: "Empresa", required: false %>
-  <%=f.input :description, as: :text, label: "Descrição"%>
-  <%=f.input :featured, label: "Destaque" %>
+  <%=f.input :title%>
+  <%=f.input :location%>
+  <%=f.input :hiring_type, collection: ['CLT', 'PJ', 'Freelance'] %>
+  <%=f.association :category%>
+  <%=f.association :company%>
+  <%=f.input :description, as: :text%>
+  <%=f.input :featured, as: :boolean%>
   <%=f.button :submit, name_button, class: "btn-lg btn-primary" %>
   <%=link_to "Voltar", root_path, class: "btn btn-default" %>
 <%end%>

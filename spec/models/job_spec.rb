@@ -4,10 +4,10 @@ RSpec.describe Job, :type => :model do
   it 'should be valid' do
     job = Job.create()
     expect(job).not_to be_valid
-    expect(job.errors[:title]).to include('can\'t be blank')
-    expect(job.errors[:location]).to include('can\'t be blank')
-    expect(job.errors[:description]).to include('can\'t be blank')
-    expect(job.errors[:category]).to include('can\'t be blank')
+    expect(job.errors[:title]).to include('não pode ficar em branco')
+    expect(job.errors[:location]).to include('não pode ficar em branco')
+    expect(job.errors[:description]).to include('não pode ficar em branco')
+    expect(job.errors[:category]).to include('não pode ficar em branco')
   end
 
   describe '#new?' do

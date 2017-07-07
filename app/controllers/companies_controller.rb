@@ -9,7 +9,7 @@ class CompaniesController < ApplicationController
   def show; end
 
   def create
-    @company = Company.new company_params
+    @company = current_user.companies.new company_params
     if @company.save
       redirect_to @company
     else
