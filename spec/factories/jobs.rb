@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :job do
     title 'Vaga de Desenvolvedor'
+    user
     category
     company
     description 'Vaga legal'

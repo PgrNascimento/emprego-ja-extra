@@ -2,6 +2,7 @@ class Job < ApplicationRecord
   validates :title, :location, :description, :category, presence: true
   belongs_to :company
   belongs_to :category
+  belongs_to :user
 
   def expired?
     self.created_at <= 90.days.ago
