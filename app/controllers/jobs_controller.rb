@@ -12,6 +12,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @companies = current_user.companies
   end
 
   def edit; end

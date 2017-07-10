@@ -54,4 +54,18 @@ feature 'User create jobs' do
 
     expect(page).to have_content 'Não foi possível criar a vaga'
   end
+
+  scenario 'and view only his companies' do
+    another_user = create(:user)
+    create(:company, name: 'Campus Code', user: user)
+    create(:company, name: 'Google', user: another_user)
+    create(:category, name: 'Testers')
+
+    visit new_job_path
+
+    within('select#job_company_id') do
+      expect(page).to have_css('option', text: 'Campus Code')
+      expect(page).not_to have_css('option', text: 'Google')
+    end
+  end
 end
