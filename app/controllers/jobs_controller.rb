@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :get_job, only: [:show, :edit, :update]
+  before_action :get_companies, only: [:new, :edit]
 
   def index
     @jobs = Job.all
@@ -12,7 +13,6 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    @companies = current_user.companies
   end
 
   def edit; end
@@ -36,6 +36,10 @@ class JobsController < ApplicationController
     end
   end
 
+  def my_jobs
+    @jobs = current_user.jobs
+  end
+
   private
   def job_params
     params.require(:job).permit(:title, :location, :category_id, :company_id,
@@ -44,5 +48,9 @@ class JobsController < ApplicationController
 
   def get_job
     @job = Job.find params[:id]
+  end
+
+  def get_companies
+    @companies = current_user.companies
   end
 end

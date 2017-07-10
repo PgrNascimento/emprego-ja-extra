@@ -29,6 +29,10 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def my_companies
+    @companies = current_user.companies
+  end
+
   private
   def company_params
     params.require(:company).permit(:name, :location, :phone, :mail)

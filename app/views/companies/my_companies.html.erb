@@ -1,0 +1,9 @@
+<%if @companies.empty? %>
+  <div class="alert alert-warning text-center" role="alert">Nenhuma empresa encontrada</div>
+<%end%>
+<%@companies.each do |company| %>
+  <div class="company">
+    <h2><%=link_to company.name, company %></h2>
+    <p><%=company.location%></p>
+  </div>
+<%end%>

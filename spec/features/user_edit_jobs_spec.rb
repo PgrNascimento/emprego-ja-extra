@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 feature 'User edit jobs' do
-  before { login }
+  let(:user) { login }
+  before { user }
   scenario 'successfully' do
-    job = create(:job)
+    company = create(:company, name: 'Campus Code', user: user)
+    job = create(:job, company: company)
 
     visit edit_job_path(job)
     fill_in 'Título',       with: 'Dev Android'
@@ -11,6 +13,7 @@ feature 'User edit jobs' do
     fill_in 'Descrição',    with: 'Desenvolvedor de apps integradas via API'
     click_on 'Atualizar Vaga'
 
+    save_page
     expect(page).to have_css('h1', text: 'Dev Android')
     expect(page).to have_content 'Belo Horizonte'
     expect(page).to have_content job.category.name
@@ -19,8 +22,8 @@ feature 'User edit jobs' do
   end
 
   scenario 'and change company' do
-    company = create(:company, name: 'Campus Code')
-    create(:company, name: 'Google')
+    company = create(:company, name: 'Campus Code', user: user)
+    create(:company, name: 'Google', user: user)
     job = create(:job, company: company)
 
     visit edit_job_path(job)

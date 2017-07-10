@@ -4,7 +4,7 @@ feature 'User create jobs' do
   let(:user) { login }
   before { user }
   scenario 'successfully' do
-    company = create(:company, name: 'Campus Code')
+    company = create(:company, name: 'Campus Code', user: user)
     category = create(:category, name: 'Testers')
 
     visit new_job_path
@@ -25,7 +25,7 @@ feature 'User create jobs' do
   end
 
   scenario 'and mark as featured' do
-    company = create(:company, name: 'Campus Code')
+    company = create(:company, name: 'Campus Code', user: user)
     category = create(:category, name: 'Testers')
 
     visit new_job_path
