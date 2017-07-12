@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 feature 'Visitor view jobs by company' do
+  let(:user) { create(:user) }
   scenario 'successfully' do
-    category = Category.create(name: 'Desenvolvedor')
-    category_ux = Category.create(name: 'UX')
+    category = create(:category)
+    category_ux = create(:category, name: 'Desenvolvedor')
     company = create(:company, name: 'Campus Code')
     create(:job, category: category, company: company, title: 'Vaga de Dev')
     create(:job, category: category_ux, company: company, title: 'Analista UX')

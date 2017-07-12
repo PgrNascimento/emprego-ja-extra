@@ -11,6 +11,9 @@
       <%if job.new? %>
         <strong>NOVA!</strong>
       <%end%>
+      <%if current_user && current_user.owner?(job)%>
+        <p><%=link_to 'Editar', job%></p>
+      <%end%>
     </div>
   </div>
 <%end%>
