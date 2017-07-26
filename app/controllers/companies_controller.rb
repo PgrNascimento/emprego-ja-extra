@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :get_company, only: [:show, :edit, :update]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :company, only: %i[show edit update]
+  before_action :authenticate_user!, only: %i[new create edit update]
 
   def new
     @company = Company.new
@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
     if @company.save
       redirect_to @company
     else
-      flash[:error] = "Não foi possível criar a empresa"
+      flash[:error] = 'Não foi possível criar a empresa'
       render :new
     end
   end
@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
     if @company.update company_params
       redirect_to @company
     else
-      flash[:error] = "Não foi possível atualizar a empresa"
+      flash[:error] = 'Não foi possível atualizar a empresa'
       render :edit
     end
   end
@@ -34,11 +34,12 @@ class CompaniesController < ApplicationController
   end
 
   private
+
   def company_params
     params.require(:company).permit(:name, :location, :phone, :mail)
   end
 
-  def get_company
+  def company
     @company = Company.find params[:id]
   end
 end

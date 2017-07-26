@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'Visitor view jobs on home page and dont view expired job' do
   scenario 'successfully' do
-    job = create(:job, title: "Vaga de Design")
-    expired_job = create(:job, title:"Vaga de Dev", created_at: -90.days.from_now)
+    job = create(:job, title: 'Vaga de Design')
+    expired_job = create(:job, title: 'Vaga de Dev', created_at: 90.days.ago)
 
     visit root_path
 
@@ -12,10 +12,10 @@ feature 'Visitor view jobs on home page and dont view expired job' do
   end
 
   scenario 'and view a danger message' do
-    expired_job = create(:job, title:"Vaga de Dev", created_at: -90.days.from_now)
+    expired_job = create(:job, title: 'Vaga de Dev', created_at: 90.days.ago)
 
     visit job_path(expired_job)
 
-    expect(page).to have_css(".alert.alert-danger", text: "Vaga expirada")
+    expect(page).to have_css('.alert.alert-danger', text: 'Vaga expirada')
   end
 end

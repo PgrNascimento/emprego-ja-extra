@@ -7,12 +7,12 @@ feature 'User edit company' do
 
     visit company_path(company)
 
-    click_on "Editar"
+    click_on 'Editar'
 
-    fill_in 'Nome',       with: 'Campus'
-    fill_in 'Local',        with: 'São Paulo'
-    fill_in 'Email',    with: 'campus@campuscode.com'
-    fill_in 'Telefone', with: "11951342149"
+    fill_in 'Nome', with: 'Campus'
+    fill_in 'Local', with: 'São Paulo'
+    fill_in 'Email', with: 'campus@campuscode.com'
+    fill_in 'Telefone', with: '11951342149'
 
     click_on 'Atualizar Empresa'
 
@@ -27,9 +27,9 @@ feature 'User edit company' do
 
     visit edit_company_path(company)
 
-    fill_in 'Nome',       with: ''
-    fill_in 'Local',        with: ''
-    fill_in 'Email',    with: ''
+    fill_in 'Nome', with: ''
+    fill_in 'Local', with: ''
+    fill_in 'Email', with: ''
     fill_in 'Telefone', with: ''
 
     click_on 'Atualizar Empresa'

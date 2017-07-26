@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Job, :type => :model do
+RSpec.describe Job, type: :model do
   it 'should be valid' do
-    job = Job.create()
+    job = Job.create
     expect(job).not_to be_valid
     expect(job.errors[:title]).to include('não pode ficar em branco')
     expect(job.errors[:location]).to include('não pode ficar em branco')

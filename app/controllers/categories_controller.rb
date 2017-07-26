@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def show
     @category = Category.find params[:id]
@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
     if @category.save
       redirect_to @category
     else
-      flash[:error] = "Não foi possível criar a categoria"
+      flash[:error] = 'Não foi possível criar a categoria'
       render :new
     end
   end
@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
   end
 
   private
+
   def category_params
     params.require(:category).permit(:name)
   end

@@ -5,7 +5,7 @@ class Job < ApplicationRecord
   belongs_to :user
 
   def expired?
-    self.created_at <= 90.days.ago
+    created_at <= 90.days.ago
   end
 
   def new?

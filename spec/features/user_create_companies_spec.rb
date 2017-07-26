@@ -35,6 +35,7 @@ feature 'User create companies' do
 
   scenario 'and not access without signed in' do
     visit root_path
+
     click_on 'Nova Empresa'
 
     expect(current_path).to eq new_user_session_path

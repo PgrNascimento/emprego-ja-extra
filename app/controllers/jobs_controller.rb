@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :get_job, only: [:show, :edit, :update]
-  before_action :get_companies, only: [:new, :edit]
+  before_action :authenticate_user!, only: %i[new create edit update]
+  before_action :job, only: %i[show edit update]
+  before_action :companies, only: %i[new edit]
 
   def index
     @jobs = Job.all
@@ -22,7 +22,7 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to @job
     else
-      flash[:error] = "Não foi possível criar a vaga"
+      flash[:error] = 'Não foi possível criar a vaga'
       render :new
     end
   end
@@ -31,7 +31,7 @@ class JobsController < ApplicationController
     if @job.update job_params
       redirect_to @job
     else
-      flash[:error] = "Não foi possível atualizar a vaga"
+      flash[:error] = 'Não foi possível atualizar a vaga'
       render :edit
     end
   end
@@ -41,16 +41,17 @@ class JobsController < ApplicationController
   end
 
   private
+
   def job_params
     params.require(:job).permit(:title, :location, :category_id, :company_id,
                                 :description, :featured, :hiring_type)
   end
 
-  def get_job
+  def job
     @job = Job.find params[:id]
   end
 
-  def get_companies
+  def companies
     @companies = current_user.companies
   end
 end
