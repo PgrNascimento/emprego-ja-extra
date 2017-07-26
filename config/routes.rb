@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'jobs#index'
   get '/my_jobs', to: 'jobs#my_jobs'
   get '/my_companies', to: 'companies#my_companies'
+  get '/my_categories', to: 'categories#my_categories'
   resources :jobs, only:[:show, :new, :create, :edit, :update]
   resources :companies, only:[:new, :create, :show, :edit, :update]
   resources :categories, only:[:new, :create, :show]

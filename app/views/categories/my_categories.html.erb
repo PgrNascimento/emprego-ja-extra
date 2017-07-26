@@ -1,0 +1,8 @@
+<%if @categories.empty? %>
+  <div class="alert alert-warning text-center" role="alert">Nenhuma categoria encontrada</div>
+<%end%>
+<%@categories.each do |category| %>
+  <div class="category">
+    <h2><%=link_to category.name, category %></h2>
+  </div>
+<%end%>
